@@ -1,0 +1,15 @@
+---
+title: "About"
+---
+
+**Created by:**  
+Felipe Valdez  
+GIS Specialist at Temple University Libraries
+
+**Email:** [felipe.valdez@temple.edu](mailto:felipe.valdez@temple.edu)
+
+[Schedule an appointment](https://charlesstudy.temple.edu/appointments/felipe){.btn .btn-primary}
+
+---
+
+![Temple University Libraries logo](https://temple.illiad.oclc.org/illiad/charles/libraries_logo.png){width=300px}

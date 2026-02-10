@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-01-08">
+
+<title>ArcGIS StoryMaps tutorial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-RC52W8J799"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RC52W8J799', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">ArcGIS StoryMaps tutorial</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#what-is-arcgis-storymaps" id="toc-what-is-arcgis-storymaps" class="nav-link" data-scroll-target="#what-is-arcgis-storymaps"><span class="header-section-number">2</span> What is ArcGIS StoryMaps?</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">3</span> Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#open-a-web-browser" id="toc-open-a-web-browser" class="nav-link" data-scroll-target="#open-a-web-browser"><span class="header-section-number">3.1</span> Open a web browser</a></li>
+  <li><a href="#go-to-httpsstorymaps.arcgis.com" id="toc-go-to-httpsstorymaps.arcgis.com" class="nav-link" data-scroll-target="#go-to-httpsstorymaps.arcgis.com"><span class="header-section-number">3.2</span> Go to https://storymaps.arcgis.com/</a></li>
+  <li><a href="#sign-in-to-arcgis-storymaps" id="toc-sign-in-to-arcgis-storymaps" class="nav-link" data-scroll-target="#sign-in-to-arcgis-storymaps"><span class="header-section-number">3.3</span> Sign in to ArcGIS StoryMaps</a></li>
+  <li><a href="#enter-your-organization-url" id="toc-enter-your-organization-url" class="nav-link" data-scroll-target="#enter-your-organization-url"><span class="header-section-number">3.4</span> Enter your organization URL</a></li>
+  <li><a href="#log-in-with-your-temple-credentials" id="toc-log-in-with-your-temple-credentials" class="nav-link" data-scroll-target="#log-in-with-your-temple-credentials"><span class="header-section-number">3.5</span> Log in with your Temple credentials</a></li>
+  </ul></li>
+  <li><a href="#understanding-your-workspace" id="toc-understanding-your-workspace" class="nav-link" data-scroll-target="#understanding-your-workspace"><span class="header-section-number">4</span> Understanding Your Workspace</a></li>
+  <li><a href="#creating-your-first-storymap" id="toc-creating-your-first-storymap" class="nav-link" data-scroll-target="#creating-your-first-storymap"><span class="header-section-number">5</span> Creating Your First StoryMap</a>
+  <ul class="collapse">
+  <li><a href="#start-a-new-story" id="toc-start-a-new-story" class="nav-link" data-scroll-target="#start-a-new-story"><span class="header-section-number">5.1</span> Start a New Story</a></li>
+  <li><a href="#add-basic-information-title-subtitle-cover" id="toc-add-basic-information-title-subtitle-cover" class="nav-link" data-scroll-target="#add-basic-information-title-subtitle-cover"><span class="header-section-number">5.2</span> Add Basic Information (title, subtitle, cover)</a></li>
+  <li><a href="#add-content" id="toc-add-content" class="nav-link" data-scroll-target="#add-content"><span class="header-section-number">5.3</span> Add Content</a></li>
+  <li><a href="#additional-content-options" id="toc-additional-content-options" class="nav-link" data-scroll-target="#additional-content-options"><span class="header-section-number">5.4</span> Additional Content Options</a></li>
+  <li><a href="#save-your-work" id="toc-save-your-work" class="nav-link" data-scroll-target="#save-your-work"><span class="header-section-number">5.5</span> Save Your Work</a></li>
+  </ul></li>
+  <li><a href="#adding-a-map-to-your-story" id="toc-adding-a-map-to-your-story" class="nav-link" data-scroll-target="#adding-a-map-to-your-story"><span class="header-section-number">6</span> Adding a Map to Your Story</a>
+  <ul class="collapse">
+  <li><a href="#create-an-express-map" id="toc-create-an-express-map" class="nav-link" data-scroll-target="#create-an-express-map"><span class="header-section-number">6.1</span> Create an Express Map</a></li>
+  <li><a href="#add-locations-to-your-map" id="toc-add-locations-to-your-map" class="nav-link" data-scroll-target="#add-locations-to-your-map"><span class="header-section-number">6.2</span> Add Locations to Your Map</a></li>
+  </ul></li>
+  <li><a href="#add-multiple-locations" id="toc-add-multiple-locations" class="nav-link" data-scroll-target="#add-multiple-locations"><span class="header-section-number">7</span> Add Multiple Locations</a></li>
+  <li><a href="#configure-map-display" id="toc-configure-map-display" class="nav-link" data-scroll-target="#configure-map-display"><span class="header-section-number">8</span> Configure Map Display</a></li>
+  <li><a href="#sec-preview" id="toc-sec-preview" class="nav-link" data-scroll-target="#sec-preview"><span class="header-section-number">9</span> Preview Your Story</a></li>
+  <li><a href="#adding-a-sidecar-immersive-experience" id="toc-adding-a-sidecar-immersive-experience" class="nav-link" data-scroll-target="#adding-a-sidecar-immersive-experience"><span class="header-section-number">10</span> Adding a Sidecar (Immersive Experience)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-sidecar" id="toc-what-is-a-sidecar" class="nav-link" data-scroll-target="#what-is-a-sidecar"><span class="header-section-number">10.1</span> What is a Sidecar?</a></li>
+  <li><a href="#choose-a-sidecar-layout" id="toc-choose-a-sidecar-layout" class="nav-link" data-scroll-target="#choose-a-sidecar-layout"><span class="header-section-number">10.2</span> Choose a Sidecar Layout</a></li>
+  <li><a href="#create-your-first-slide" id="toc-create-your-first-slide" class="nav-link" data-scroll-target="#create-your-first-slide"><span class="header-section-number">10.3</span> Create Your First Slide</a></li>
+  <li><a href="#add-more-slides" id="toc-add-more-slides" class="nav-link" data-scroll-target="#add-more-slides"><span class="header-section-number">10.4</span> Add More Slides</a></li>
+  <li><a href="#configure-slide-transitions" id="toc-configure-slide-transitions" class="nav-link" data-scroll-target="#configure-slide-transitions"><span class="header-section-number">10.5</span> Configure Slide Transitions</a></li>
+  <li><a href="#preview-your-sidecar" id="toc-preview-your-sidecar" class="nav-link" data-scroll-target="#preview-your-sidecar">Preview Your Sidecar</a></li>
+  <li><a href="#change-the-sidecar-layout" id="toc-change-the-sidecar-layout" class="nav-link" data-scroll-target="#change-the-sidecar-layout"><span class="header-section-number">10.6</span> Change the Sidecar Layout</a></li>
+  </ul></li>
+  <li><a href="#adding-a-map-tour-immersive-experience" id="toc-adding-a-map-tour-immersive-experience" class="nav-link" data-scroll-target="#adding-a-map-tour-immersive-experience"><span class="header-section-number">11</span> Adding a Map Tour (Immersive Experience)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-map-tour" id="toc-what-is-a-map-tour" class="nav-link" data-scroll-target="#what-is-a-map-tour"><span class="header-section-number">11.1</span> What is a Map Tour?</a></li>
+  <li><a href="#create-a-map-tour" id="toc-create-a-map-tour" class="nav-link" data-scroll-target="#create-a-map-tour"><span class="header-section-number">11.2</span> Create a Map Tour</a></li>
+  <li><a href="#add-your-first-location" id="toc-add-your-first-location" class="nav-link" data-scroll-target="#add-your-first-location"><span class="header-section-number">11.3</span> Add Your First Location</a></li>
+  <li><a href="#add-additional-locations" id="toc-add-additional-locations" class="nav-link" data-scroll-target="#add-additional-locations"><span class="header-section-number">11.4</span> Add Additional Locations</a></li>
+  <li><a href="#change-the-layout" id="toc-change-the-layout" class="nav-link" data-scroll-target="#change-the-layout"><span class="header-section-number">11.5</span> Change the Layout</a></li>
+  <li><a href="#preview-your-map-tour" id="toc-preview-your-map-tour" class="nav-link" data-scroll-target="#preview-your-map-tour"><span class="header-section-number">11.6</span> Preview Your Map Tour</a></li>
+  <li><a href="#key-differences-sidecar-vs.-map-tour" id="toc-key-differences-sidecar-vs.-map-tour" class="nav-link" data-scroll-target="#key-differences-sidecar-vs.-map-tour"><span class="header-section-number">11.7</span> Key Differences: Sidecar vs.&nbsp;Map Tour</a></li>
+  </ul></li>
+  <li><a href="#publish-and-share-your-storymap" id="toc-publish-and-share-your-storymap" class="nav-link" data-scroll-target="#publish-and-share-your-storymap"><span class="header-section-number">12</span> Publish and Share Your StoryMap</a>
+  <ul class="collapse">
+  <li><a href="#add-credits-optional-but-recommended" id="toc-add-credits-optional-but-recommended" class="nav-link" data-scroll-target="#add-credits-optional-but-recommended"><span class="header-section-number">12.1</span> Add Credits (Optional but Recommended)</a></li>
+  <li><a href="#publish-your-storymap" id="toc-publish-your-storymap" class="nav-link" data-scroll-target="#publish-your-storymap"><span class="header-section-number">12.2</span> Publish Your StoryMap</a></li>
+  <li><a href="#share-your-published-story" id="toc-share-your-published-story" class="nav-link" data-scroll-target="#share-your-published-story"><span class="header-section-number">12.3</span> Share Your Published Story</a></li>
+  <li><a href="#manage-published-stories" id="toc-manage-published-stories" class="nav-link" data-scroll-target="#manage-published-stories"><span class="header-section-number">12.4</span> Manage Published Stories</a></li>
+  <li><a href="#sharing-level-comparison" id="toc-sharing-level-comparison" class="nav-link" data-scroll-target="#sharing-level-comparison"><span class="header-section-number">12.5</span> Sharing Level Comparison</a></li>
+  <li><a href="#after-publishing" id="toc-after-publishing" class="nav-link" data-scroll-target="#after-publishing"><span class="header-section-number">12.6</span> After Publishing</a></li>
+  </ul></li>
+  <li><a href="#custom-design-and-layout" id="toc-custom-design-and-layout" class="nav-link" data-scroll-target="#custom-design-and-layout"><span class="header-section-number">13</span> Custom Design and Layout</a>
+  <ul class="collapse">
+  <li><a href="#access-design-options" id="toc-access-design-options" class="nav-link" data-scroll-target="#access-design-options"><span class="header-section-number">13.1</span> Access Design Options</a></li>
+  <li><a href="#add-sections-to-navigation" id="toc-add-sections-to-navigation" class="nav-link" data-scroll-target="#add-sections-to-navigation"><span class="header-section-number">13.2</span> Add sections to navigation</a></li>
+  <li><a href="#design-best-practices" id="toc-design-best-practices" class="nav-link" data-scroll-target="#design-best-practices"><span class="header-section-number">13.3</span> Design Best Practices</a></li>
+  </ul></li>
+  <li><a href="#more-resources" id="toc-more-resources" class="nav-link" data-scroll-target="#more-resources"><span class="header-section-number">14</span> More Resources</a>
+  <ul class="collapse">
+  <li><a href="#from-esri" id="toc-from-esri" class="nav-link" data-scroll-target="#from-esri">From ESRI</a></li>
+  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ArcGIS StoryMaps tutorial</h1>
+<p class="subtitle lead">Spring 2026</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 8, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>This is an introductory guide to use ArcGIS StoryMaps to create and share interactive and multimedia stories.</p>
+<p>A video tutorial is also available. Click <a href="https://felipevaldez.com/StoryMaps_intro2026/1">here</a> if you prefer to use the video guides.</p>
+<p>You will learn to login to ArcGIS StoryMaps using your Temple University account, the basics of the StoryMaps workspace, to create your first StoryMap with a cover, title and subtitles, to add multimedia and interactive elements to your story and, to publish and share the story.</p>
+</section>
+<section id="what-is-arcgis-storymaps" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-is-arcgis-storymaps"><span class="header-section-number">2</span> What is ArcGIS StoryMaps?</h2>
+<p><img src="https://storymaps.arcgis.com/static/images/social-sharing-card.jpeg" class="img-fluid"></p>
+<p><a href="https://www.esri.com/en-us/arcgis/products/arcgis-storymaps/overview">ArcGIS StoryMaps</a> is a web-based storytelling platform created by Esri that combines interactive maps with narrative text, images, videos, and other multimedia content. It’s designed to help people create compelling, map-based stories that communicate information in an engaging way.</p>
+<p>StoryMaps lets you build narratives that readers scroll through, with maps that can zoom, pan, and reveal different layers of information as the story unfolds.</p>
+<p>It’s particularly useful when location is central to understanding your story - whether you’re documenting historical events across different places, showing environmental changes over time, or explaining how geographic factors influence a situation. The tool is accessible to non-technical users while still offering customization options for those who want more control over the design.</p>
+</section>
+<section id="getting-started" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">3</span> Getting Started</h2>
+<p>This section will show you how to get started using ArcGIS StoryMaps through your Temple University Account and the main workspace.</p>
+<section id="open-a-web-browser" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="open-a-web-browser"><span class="header-section-number">3.1</span> Open a web browser</h3>
+<p>Open Chrome, Firefox, Safari, or your preferred browser.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ArcGIS StoryMaps works best on the latest versions of major, WebGL-enabled desktop browsers, including Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge.</p>
+</div>
+</div>
+</section>
+<section id="go-to-httpsstorymaps.arcgis.com" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="go-to-httpsstorymaps.arcgis.com"><span class="header-section-number">3.2</span> Go to <a href="https://storymaps.arcgis.com/" class="uri">https://storymaps.arcgis.com/</a></h3>
+<p>Type <code>https://storymaps.arcgis.com/</code> on the navigation bar or search <code>Storymaps arcgis</code></p>
+</section>
+<section id="sign-in-to-arcgis-storymaps" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="sign-in-to-arcgis-storymaps"><span class="header-section-number">3.3</span> Sign in to ArcGIS StoryMaps</h3>
+<ul>
+<li>Click the <code>Sign In</code> button on the main page</li>
+<li>Select <code>Your ArcGIS organization's URL</code> (not the personal login option)</li>
+</ul>
+</section>
+<section id="enter-your-organization-url" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="enter-your-organization-url"><span class="header-section-number">3.4</span> Enter your organization URL</h3>
+<ul>
+<li>Type <code>temple</code> in the organization field</li>
+<li>The full URL should display as: temple.maps.arcgis.com</li>
+<li>Click <code>Continue</code></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/login.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can always sign in using a free personal account. However, using the organizational license will give you access to more features and products from Esri. Get more info <a href="https://doc.arcgis.com/en/arcgis-online/get-started/create-account.htm#ESRI_SECTION1_D91DD2A709AE4FB68A9CC095F1688E05">here</a></p>
+</div>
+</div>
+</section>
+<section id="log-in-with-your-temple-credentials" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="log-in-with-your-temple-credentials"><span class="header-section-number">3.5</span> Log in with your Temple credentials</h3>
+<ul>
+<li>Enter your TUaccess username and password</li>
+<li>Use the same credentials you use for other Temple systems</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tuaccess.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="understanding-your-workspace" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="understanding-your-workspace"><span class="header-section-number">4</span> Understanding Your Workspace</h2>
+<p>Once logged in, you’ll see your ArcGIS StoryMaps workspace with the following sections:</p>
+<ol type="1">
+<li>On the center, you will see the <strong>Content</strong>, a gallery of the storymaps you have created.</li>
+<li>On the left, you will see many options to <strong>Filter</strong> the storymaps you are seeing in the gallery:</li>
+</ol>
+<ul>
+<li><strong>My Stories</strong> - View story maps you’ve created</li>
+<li><strong>My Favorites</strong> - Access story maps you’ve favorited</li>
+<li><strong>My Groups</strong> - See groups you belong to within ArcGIS</li>
+<li><strong>My Organization</strong> - Browse all story maps created by Temple users (great for inspiration!)</li>
+</ul>
+<ol start="3" type="1">
+<li>On the bottom left you can find <strong>Quick Links</strong> - Access tutorials, tips, and story planning guides</li>
+</ol>
+<p><img src="images/workspace.png" class="img-fluid"></p>
+</section>
+<section id="creating-your-first-storymap" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="creating-your-first-storymap"><span class="header-section-number">5</span> Creating Your First StoryMap</h2>
+<section id="start-a-new-story" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="start-a-new-story"><span class="header-section-number">5.1</span> Start a New Story</h3>
+<section id="create-a-new-story" class="level4" data-number="5.1.1">
+<h4 data-number="5.1.1" class="anchored" data-anchor-id="create-a-new-story"><span class="header-section-number">5.1.1</span> Create a new story</h4>
+<ul>
+<li>Click the <code>Create</code> button in the top right corner</li>
+<li>Select <code>Story</code> from the dropdown menu</li>
+<li>The Story Builder will launch</li>
+</ul>
+<p><img src="images/create.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Understanding the Interface</strong></p>
+<p>Before you start editing, note the following elements in the top menu bar:</p>
+<p><img src="images/status.png" class="img-fluid" style="width:30.0%"></p>
+<ul>
+<li><strong>Draft status</strong> - Your story is private until you publish it. No one else can see it, even other Temple users.</li>
+<li><strong>Auto-save</strong> - Changes are saved automatically</li>
+<li><strong>Undo/Redo buttons</strong> - Located in the top menu</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="add-basic-information-title-subtitle-cover" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="add-basic-information-title-subtitle-cover"><span class="header-section-number">5.2</span> Add Basic Information (title, subtitle, cover)</h3>
+<section id="add-a-title-and-subtitle" class="level4" data-number="5.2.1">
+<h4 data-number="5.2.1" class="anchored" data-anchor-id="add-a-title-and-subtitle"><span class="header-section-number">5.2.1</span> Add a title and subtitle</h4>
+<p><br></p>
+<ol type="1">
+<li>Click on the “Story title” placeholder</li>
+</ol>
+<p>Enter your title (example: “My Map - Philadelphia”)</p>
+<ol start="2" type="1">
+<li>Click on the subtitle area</li>
+</ol>
+<p>Add a short introduction (example: “This sample map is for an introductory workshop on ArcGIS StoryMaps”)</p>
+<ol start="3" type="1">
+<li>The byline will show your name by default (you can change this if multiple people are working on the story)</li>
+</ol>
+<p><img src="images/add1.gif" class="img-fluid"></p>
+</section>
+<section id="add-a-cover-image-or-video" class="level4" data-number="5.2.2">
+<h4 data-number="5.2.2" class="anchored" data-anchor-id="add-a-cover-image-or-video"><span class="header-section-number">5.2.2</span> Add a cover image or video</h4>
+<ol type="1">
+<li>Click <code>Add cover image or video</code> (the prominent button at the top)</li>
+<li>Click <code>Browse</code> to select a file from your computer</li>
+<li>Select the image you want to use</li>
+<li>Click <code>Add</code></li>
+</ol>
+<p><img src="images/addimage.png" class="img-fluid"></p>
+</section>
+<section id="configure-the-cover-image" class="level4" data-number="5.2.3">
+<h4 data-number="5.2.3" class="anchored" data-anchor-id="configure-the-cover-image"><span class="header-section-number">5.2.3</span> Configure the cover image</h4>
+<p>Once uploaded, click on the gear <img src="images/gear.png" height="40"> icon over the cover image to access its options:</p>
+<ul>
+<li><strong>Display options</strong> - Choose how the image appears on different devices (desktop vs.&nbsp;mobile)</li>
+<li><strong>Alternative text</strong> - Add descriptive text for accessibility</li>
+<li><strong>Attribution</strong> - Add a credit line for the image source</li>
+</ul>
+<p>An information icon will appear in the top left corner of your image showing the attribution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/coverset.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="adjust-the-title-panel" class="level4" data-number="5.2.4">
+<h4 data-number="5.2.4" class="anchored" data-anchor-id="adjust-the-title-panel"><span class="header-section-number">5.2.4</span> Adjust the title panel</h4>
+<ol type="1">
+<li>Click <code>Change Panel</code> <img src="images/change.png" height="40"> appearance on the title/description block</li>
+<li>Choose the panel position:</li>
+</ol>
+<ul>
+<li>Horizontal</li>
+<li>Centered</li>
+<li>Other layout options</li>
+</ul>
+<p>Select the option that works best for your content</p>
+</section>
+</section>
+<section id="add-content" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="add-content"><span class="header-section-number">5.3</span> Add Content</h3>
+<section id="add-a-heading" class="level4" data-number="5.3.1">
+<h4 data-number="5.3.1" class="anchored" data-anchor-id="add-a-heading"><span class="header-section-number">5.3.1</span> Add a heading</h4>
+<ol type="1">
+<li>Click in the Tell your story area below the cover</li>
+</ol>
+<p>Type your heading (example: “The Most Important Sites”)</p>
+<ol start="2" type="1">
+<li>Click on the text to reveal formatting options</li>
+</ol>
+<p>Select a text style from the dropdown option, or change the size and type as you want.</p>
+<p><img src="images/heading.png" class="img-fluid"></p>
+</section>
+<section id="add-body-text" class="level4" data-number="5.3.2">
+<h4 data-number="5.3.2" class="anchored" data-anchor-id="add-body-text"><span class="header-section-number">5.3.2</span> Add body text</h4>
+<ol type="1">
+<li>Click below your heading</li>
+<li>Type your paragraph text (example: “This section highlights the most important sites to see in Philadelphia”)</li>
+</ol>
+<p>Format as needed using the text editor (similar to Microsoft Word)</p>
+<p><img src="images/paragraph.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="additional-content-options" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="additional-content-options"><span class="header-section-number">5.4</span> Additional Content Options</h3>
+<p>You can add various elements to your story by clicking the plus button <img src="images/plus.png" height="40">:</p>
+<ul>
+<li><strong>Buttons</strong> - Link to other pages or resources</li>
+<li><strong>Code blocks</strong> - Embed custom code</li>
+<li><strong>Multimedia</strong> - Images, image galleries, videos, audio</li>
+<li><strong>Embeds</strong> - Content from other websites</li>
+<li><strong>ArcGIS content</strong> - Maps and other features from your ArcGIS account</li>
+</ul>
+</section>
+<section id="save-your-work" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="save-your-work"><span class="header-section-number">5.5</span> Save Your Work</h3>
+<ol type="1">
+<li>Check the top menu bar to confirm your changes have been saved (auto-save is enabled)</li>
+<li>Your story remains in Draft status until you publish it</li>
+<li>To return to your content library, click the back arrow (←) in the top left</li>
+</ol>
+<p>Your new story will appear in your content list with:</p>
+<ul>
+<li>Title</li>
+<li>Short description</li>
+<li>Draft status indicator</li>
+<li>Creation date</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember Your story is not visible to anyone else until you click <code>Publish</code>. You can continue editing and saving as a draft as long as you need.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="adding-a-map-to-your-story" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="adding-a-map-to-your-story"><span class="header-section-number">6</span> Adding a Map to Your Story</h2>
+<section id="create-an-express-map" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="create-an-express-map"><span class="header-section-number">6.1</span> Create an Express Map</h3>
+<ol type="1">
+<li>Open your story for editing</li>
+</ol>
+<ul>
+<li>From your content library, click on your story (e.g., “My Map - Philadelphia”)</li>
+</ul>
+<ol start="2" type="1">
+<li>Add a map block</li>
+</ol>
+<ul>
+<li>Click the plus sign <img src="images/plus.png" height="40"> below any existing content block</li>
+<li>Select Map from the Data Visualization section</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/addmap.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Choose Create Express Map</li>
+</ol>
+<ul>
+<li>If you haven’t created any maps yet, you won’t see a list of existing maps</li>
+<li>Click Create Express Map (first option)</li>
+<li>A map of the world will appear (you may see a guided tour on first use)</li>
+</ul>
+<p><img src="images/createexpress.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Navigation Tips</strong></p>
+<p>Use your mouse wheel to zoom in/out</p>
+<p>Use the zoom buttons (+/-) on the map</p>
+<p>Use the Search by location bar (top right) for easier navigation</p>
+</div>
+</div>
+</section>
+<section id="add-locations-to-your-map" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="add-locations-to-your-map"><span class="header-section-number">6.2</span> Add Locations to Your Map</h3>
+<section id="sec-search" class="level4" data-number="6.2.1">
+<h4 data-number="6.2.1" class="anchored" data-anchor-id="sec-search"><span class="header-section-number">6.2.1</span> Search for a location</h4>
+<ol type="1">
+<li>Click on the Search by location bar (top right corner) and type the place name or address</li>
+</ol>
+<ul>
+<li>For places: “Philadelphia, PA”</li>
+<li>For addresses: Include street number, street name, and city</li>
+<li>Adding the city name or zip code helps find the correct location</li>
+</ul>
+<ol start="2" type="1">
+<li>Select the correct result from the dropdown list</li>
+</ol>
+<ul>
+<li>The map will automatically zoom to that location</li>
+<li>A blue pin will appear at the center</li>
+</ul>
+<ol start="3" type="1">
+<li>Click Add to map in the popup</li>
+</ol>
+<p><img src="images/searchloc.png" class="img-fluid"></p>
+</section>
+<section id="configure-the-location-point" class="level4" data-number="6.2.2">
+<h4 data-number="6.2.2" class="anchored" data-anchor-id="configure-the-location-point"><span class="header-section-number">6.2.2</span> Configure the location point</h4>
+<p>Once added, the left panel will show the point’s attributes. Here are some of the things you can configure:</p>
+<p><strong>Add or edit basic information:</strong></p>
+<ol type="1">
+<li>Title - Change from the default search result to something simpler (e.g., “City of Philadelphia”)</li>
+<li>Description - Add details about the location</li>
+<li>Image or video - Click to add visual content (see below)</li>
+<li>Change the pin style</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/point1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p><strong>Change the pin style:</strong></p>
+<ol type="1">
+<li>Click the style button at the bottom of the left panel</li>
+</ol>
+<p>Choose from:</p>
+<ul>
+<li>Custom image instead of an icon</li>
+<li>Different icon sizes (small, medium, large)</li>
+<li>Different colors</li>
+</ul>
+<ol start="2" type="1">
+<li>Click Save</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/point2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p><strong>Add an image to a location:</strong></p>
+<ol type="1">
+<li>Click Add image or video in the left panel</li>
+<li>Click Browse your files</li>
+<li>Select an image from your computer</li>
+</ol>
+<p><img src="images/point3.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>Configure image display:</li>
+</ol>
+<ul>
+<li><p>Preview - See how it appears on different devices</p></li>
+<li><p>Placement options: Fill crop - Uses the entire space (may crop edges); Fit (do not crop) - Shows entire image (may have borders)</p></li>
+<li><p>Position - Adjust focal point (top, center, bottom)</p></li>
+<li><p>Background color - Set color for any empty space</p></li>
+</ul>
+<ol start="5" type="1">
+<li>Add Attribution information</li>
+<li>Click Save</li>
+</ol>
+<p><img src="images/point4.png" class="img-fluid"></p>
+</section>
+</section>
+</section>
+<section id="add-multiple-locations" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="add-multiple-locations"><span class="header-section-number">7</span> Add Multiple Locations</h2>
+<p>Repeat the <a href="#sec-search">search</a> and add process for each location you want to include:</p>
+<ol type="1">
+<li>Search for the next location (e.g., “Philadelphia Museum of Art”)</li>
+<li>Click <code>Add to map</code></li>
+<li>Add an image, edit the title, and add a description</li>
+<li>Customize the pin color and size</li>
+<li>Click <code>Save</code></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Viewing Your Points</strong></p>
+<p>After saving a point, the map may only show that last point. Zoom out to see all your points together. The map remains interactive - you can always zoom in/out to explore.</p>
+</div>
+</div>
+</section>
+<section id="configure-map-display" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="configure-map-display"><span class="header-section-number">8</span> Configure Map Display</h2>
+<p><strong>A. Choose map size and position</strong></p>
+<p>Hover your mouse over the map to reveal display options at the top:</p>
+<ul>
+<li><strong>Float left</strong> - Small map on the left side with text on the right</li>
+<li><strong>Float right</strong> - Small map on the right side with text on the left</li>
+<li><strong>Small</strong> - Centered, compact view</li>
+<li><strong>Medium</strong> - Centered, moderate size</li>
+<li><strong>Large</strong> - Full-width display</li>
+</ul>
+<p><img src="images/setmap.png" class="img-fluid"></p>
+<p><strong>B. Set the default zoom level</strong></p>
+<ol type="1">
+<li>Hover over the map and click the Edit (pencil) icon</li>
+<li>Zoom and pan to show the view you want users to see first</li>
+<li>Click Save</li>
+</ol>
+<p>The map will remember this zoom level regardless of the map size you choose.</p>
+<p><strong>C. Add a caption (optional)</strong></p>
+<p>Below the map, you can add a caption to:</p>
+<ul>
+<li>Provide attribution</li>
+<li>Explain what the map shows</li>
+<li>Add context for viewers</li>
+</ul>
+</section>
+<section id="sec-preview" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="sec-preview"><span class="header-section-number">9</span> Preview Your Story</h2>
+<ol type="1">
+<li>Click <code>Preview</code> in the top menu bar</li>
+</ol>
+<p><img src="images/preview1.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>View how your story looks on different devices:</li>
+</ol>
+<ul>
+<li>Desktop</li>
+<li>Tablet (portrait and landscape)</li>
+<li>Phone (portrait and landscape)</li>
+</ul>
+<ol start="3" type="1">
+<li>Click the <code>X</code> to exit preview mode</li>
+</ol>
+<p><img src="images/preview2.png" class="img-fluid"></p>
+<p><strong>Interactive Features</strong></p>
+<p>Once published, your map will be interactive for viewers:</p>
+<ul>
+<li><p>Hovering over pins shows the title</p></li>
+<li><p>Clicking on pins reveals:</p>
+<ul>
+<li>Full title</li>
+<li>Image (if added)</li>
+<li>Description</li>
+<li>Attribution</li>
+</ul></li>
+<li><p>Users can zoom and pan to explore</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have a description longer than a few words, viewers will see a “Read more” link when hovering over the pin. Clicking it displays the full description.</p>
+</div>
+</div>
+</section>
+<section id="adding-a-sidecar-immersive-experience" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="adding-a-sidecar-immersive-experience"><span class="header-section-number">10</span> Adding a Sidecar (Immersive Experience)</h2>
+<section id="what-is-a-sidecar" class="level3" data-number="10.1">
+<h3 data-number="10.1" class="anchored" data-anchor-id="what-is-a-sidecar"><span class="header-section-number">10.1</span> What is a Sidecar?</h3>
+<p>A Sidecar creates an immersive, scrolling experience that combines maps or media with narrative content. As users scroll through your story, the map updates to show different locations while text and images appear alongside.</p>
+<p><img src="images/sidecar.gif" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sidecar Examples">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sidecar Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See some sidecar examples in <a href="https://storymaps.arcgis.com/collections/f630a462b29847fa948336a2ada4b02f">this collection</a> from ESRI.</p>
+</div>
+</div>
+</section>
+<section id="choose-a-sidecar-layout" class="level3" data-number="10.2">
+<h3 data-number="10.2" class="anchored" data-anchor-id="choose-a-sidecar-layout"><span class="header-section-number">10.2</span> Choose a Sidecar Layout</h3>
+<ol type="1">
+<li>Add a Sidecar block</li>
+</ol>
+<ul>
+<li>Click the + (plus sign) to add a new content block</li>
+<li>Scroll down to the Immersive section</li>
+<li>Click Sidecar</li>
+</ul>
+<p><img src="images/sidecar1.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Select a layout style</li>
+</ol>
+<ul>
+<li>Docked - Content panel fixed on one side, map on the other</li>
+<li>Floating - Map fills the screen with floating text/image panels</li>
+<li>Slideshow - Traditional slide-by-slide presentation style</li>
+</ul>
+<ol start="3" type="1">
+<li>Click Save to create the Sidecar</li>
+</ol>
+<p><img src="images/sidecar2.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Layout Flexibility">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Layout Flexibility
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can change the layout at any time. Start with one and switch if you want a different visual effect.</p>
+</div>
+</div>
+</section>
+<section id="create-your-first-slide" class="level3" data-number="10.3">
+<h3 data-number="10.3" class="anchored" data-anchor-id="create-your-first-slide"><span class="header-section-number">10.3</span> Create Your First Slide</h3>
+<section id="add-a-map" class="level4" data-number="10.3.1">
+<h4 data-number="10.3.1" class="anchored" data-anchor-id="add-a-map"><span class="header-section-number">10.3.1</span> Add a map</h4>
+<ol type="1">
+<li><p>Click <code>Add</code> in the large panel on the right</p></li>
+<li><p>Select Map from the media options</p></li>
+</ol>
+<p><img src="images/sidecar3.png" class="img-fluid"></p>
+<p>The following process is the same as <a href="#sec-search" class="quarto-xref">Section&nbsp;6.2.1</a></p>
+<ol start="3" type="1">
+<li><p>Choose Express Map</p></li>
+<li><p>Search for your location (e.g., “Philadelphia Museum of Art”)</p></li>
+<li><p>Select the correct result from the dropdown</p></li>
+<li><p>Click <code>Add to map</code> if you want a pin at that location</p></li>
+<li><p>Click <code>Save</code> twice (once for the point, once for the map)</p></li>
+</ol>
+<p><img src="images/sidecar2.gif" class="img-fluid"></p>
+</section>
+<section id="add-content-to-the-left-panel" class="level4" data-number="10.3.2">
+<h4 data-number="10.3.2" class="anchored" data-anchor-id="add-content-to-the-left-panel"><span class="header-section-number">10.3.2</span> Add content to the left panel</h4>
+<ol type="1">
+<li>Add a title</li>
+</ol>
+<ul>
+<li>Type your location name (e.g., “Philadelphia Museum of Art”)</li>
+<li>Select the text and choose Heading 2 for consistent formatting</li>
+</ul>
+<p><img src="images/sidecar4.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Add an image</li>
+</ol>
+<ul>
+<li>Click the + button in the left panel</li>
+<li>Select Image</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sidecar5.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<ul>
+<li>Click Browse and select your image file</li>
+<li>Add a Caption (e.g., “Source: Wikimedia Commons”)</li>
+<li>Click Add</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sidecar6.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Add descriptive text</li>
+</ol>
+<p><img src="images/sidecar7.png" class="img-fluid"></p>
+<ul>
+<li>Click the + button again</li>
+<li>Type your description</li>
+<li>Format and style the text as needed (links, bold, colors, etc.)</li>
+</ul>
+<p><img src="images/sidecar8.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To format the text, simply <em>select</em> the words you want to change to see the formatting options.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="add-more-slides" class="level3" data-number="10.4">
+<h3 data-number="10.4" class="anchored" data-anchor-id="add-more-slides"><span class="header-section-number">10.4</span> Add More Slides</h3>
+<section id="create-a-new-slide" class="level4" data-number="10.4.1">
+<h4 data-number="10.4.1" class="anchored" data-anchor-id="create-a-new-slide"><span class="header-section-number">10.4.1</span> Create a new slide</h4>
+<ol type="1">
+<li>Click the + New slide button at the bottom of the screen</li>
+<li>You’ll see a blank slide (numbered sequentially: 1, 2, 3…)</li>
+</ol>
+<p><img src="images/sidecar9.png" class="img-fluid"></p>
+</section>
+<section id="add-content-to-the-new-slide" class="level4" data-number="10.4.2">
+<h4 data-number="10.4.2" class="anchored" data-anchor-id="add-content-to-the-new-slide"><span class="header-section-number">10.4.2</span> Add content to the new slide</h4>
+<p>Repeat the same <a href="#search">process</a> for each location:</p>
+<ol type="1">
+<li>Add a map (search for the new location)</li>
+<li>Add a title (use Heading 2 or any other type you want)</li>
+<li>Add an image or video</li>
+<li>Add descriptive text</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Adding Content">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Adding Content
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The order you add elements doesn’t matter. You can add the title first, then the image, then the map - whichever order works best for you. You can add any content to your story.</p>
+</div>
+</div>
+</section>
+<section id="manually-add-a-map-point-if-search-doesnt-work" class="level4" data-number="10.4.3">
+<h4 data-number="10.4.3" class="anchored" data-anchor-id="manually-add-a-map-point-if-search-doesnt-work"><span class="header-section-number">10.4.3</span> Manually add a map point (if search doesn’t work)</h4>
+<p>If the search doesn’t find the exact location you want:</p>
+<ol type="1">
+<li>Zoom to the approximate area on the map</li>
+<li>Click the Point tool in the top menu bar</li>
+<li>Your cursor will change to a crosshair</li>
+<li>Click on the map where you want to place the point</li>
+<li>Add a title and any other details</li>
+<li>Click Save</li>
+</ol>
+<p><img src="images/sidecar10.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="configure-slide-transitions" class="level3" data-number="10.5">
+<h3 data-number="10.5" class="anchored" data-anchor-id="configure-slide-transitions"><span class="header-section-number">10.5</span> Configure Slide Transitions</h3>
+<ol type="1">
+<li>Click the transition icon between slides (at the bottom of the screen)</li>
+<li>Choose a transition effect:</li>
+</ol>
+<ul>
+<li><em>Fade</em> - Smooth fade between slides</li>
+<li><em>Slow fade</em> - Slower, more gradual fade</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sidecar11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Additional slide options (accessible via the three-dot menu):</li>
+</ol>
+<ul>
+<li>Duplicate slide</li>
+<li>Move slide</li>
+<li>Delete slide</li>
+</ul>
+</section>
+<section id="preview-your-sidecar" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="preview-your-sidecar"><a href="#sec-preview">Preview</a> Your Sidecar</h3>
+<ol type="1">
+<li>Click <code>Preview</code> in the top menu</li>
+<li>Scroll through your story to see how the Sidecar works:</li>
+</ol>
+<ul>
+<li>The map updates as you scroll</li>
+<li>Content appears in the side panel</li>
+<li>Transitions occur smoothly between slides</li>
+</ul>
+</section>
+<section id="change-the-sidecar-layout" class="level3" data-number="10.6">
+<h3 data-number="10.6" class="anchored" data-anchor-id="change-the-sidecar-layout"><span class="header-section-number">10.6</span> Change the Sidecar Layout</h3>
+<p>You can switch layouts at any time:</p>
+<ol type="1">
+<li>Click <code>Options</code> below the slide navigation bar</li>
+<li>Select <code>Change layout</code></li>
+<li>Choose a different layout:</li>
+</ol>
+<ul>
+<li><strong>Docked</strong> - Fixed panel alongside map</li>
+<li><strong>Floating</strong> - Full-screen map with floating content panels</li>
+<li><strong>Slideshow</strong> - Traditional slide presentation</li>
+</ul>
+<p><img src="images/sidecar12.png" class="img-fluid"></p>
+<ol start="4" type="1">
+<li>Click <code>Save</code></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Choosing a Layout">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Choosing a Layout
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <strong>Floating</strong> when the map is the most important visual element</p>
+<p>Use <strong>Docked</strong> for a balanced mix of content and map</p>
+<p>Use <strong>Slideshow</strong> for a more traditional presentation style</p>
+<p>Consider your audience’s devices when choosing a layout</p>
+</div>
+</div>
+</section>
+</section>
+<section id="adding-a-map-tour-immersive-experience" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="adding-a-map-tour-immersive-experience"><span class="header-section-number">11</span> Adding a Map Tour (Immersive Experience)</h2>
+<section id="what-is-a-map-tour" class="level3" data-number="11.1">
+<h3 data-number="11.1" class="anchored" data-anchor-id="what-is-a-map-tour"><span class="header-section-number">11.1</span> What is a Map Tour?</h3>
+<p>A Map Tour is similar to a Sidecar but designed specifically for showcasing multiple locations on a map. The key difference is that locations are numbered sequentially, and the interface is optimized for point-to-point navigation.</p>
+<p><img src="images/maptour.gif" class="img-fluid"></p>
+<div class="callout callout-style-default callout-note callout-titled" title="MapTour Examples">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>MapTour Examples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See some maptour examples in <a href="https://storymaps.arcgis.com/collections/dd4c2e6d5c2a40dd98e881f6ba616605">this collection</a> from ESRI.</p>
+</div>
+</div>
+</section>
+<section id="create-a-map-tour" class="level3" data-number="11.2">
+<h3 data-number="11.2" class="anchored" data-anchor-id="create-a-map-tour"><span class="header-section-number">11.2</span> Create a Map Tour</h3>
+<ol type="1">
+<li>Click the <strong>+</strong> (plus sign) to add a new content block</li>
+<li>Scroll to the <strong>Immersive</strong> section and click <strong>Map Tour</strong></li>
+</ol>
+<p><img src="images/maptour1.png" class="img-fluid"></p>
+<ul>
+<li><p><strong>Choose your starting point</strong></p>
+<ul>
+<li><strong>Start from scratch</strong> - Create a new tour (recommended for beginners)</li>
+<li><strong>Use existing layer or map</strong> - Import from previous work</li>
+<li><strong>Upload media first</strong> - Start with your images/videos</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li><p>Select a layout:</p>
+<ul>
+<li><strong>Map focused</strong> - Large map with floating content panels (similar to Sidecar)</li>
+<li><strong>Media focused</strong> - Large images/videos with smaller map on top</li>
+<li><strong>Explorer Tours - Grid</strong> - Image grid with map, click to explore</li>
+<li><strong>Explorer Tours - List</strong> - Vertical list of images with map</li>
+</ul></li>
+<li><p>Click <strong>Save</strong></p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/maptour2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Map Tour vs. Sidecar">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Map Tour vs.&nbsp;Sidecar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Map Tour</strong> uses numbered location markers (1, 2, 3…) instead of custom pins</li>
+<li>Content structure is pre-defined (image, title, description)</li>
+<li>Better for sequential point-to-point tours</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="add-your-first-location" class="level3" data-number="11.3">
+<h3 data-number="11.3" class="anchored" data-anchor-id="add-your-first-location"><span class="header-section-number">11.3</span> Add Your First Location</h3>
+<section id="add-media-and-text" class="level4" data-number="11.3.1">
+<h4 data-number="11.3.1" class="anchored" data-anchor-id="add-media-and-text"><span class="header-section-number">11.3.1</span> Add media and text</h4>
+<p>The left panel has dedicated spaces for:</p>
+<ol type="1">
+<li><strong>Image or video</strong> - Click to browse and upload your file
+<ul>
+<li>Adjust the focal point (center on the important part of the image)</li>
+<li>Choose display options (fill, fit, etc.)</li>
+</ul></li>
+<li><strong>Title</strong> - Pre-formatted as a header
+<ul>
+<li>Type your location name</li>
+</ul></li>
+<li><strong>Description</strong> - Add details about the location
+<ul>
+<li>Format text, add hyperlinks, style as needed</li>
+</ul></li>
+</ol>
+<p><img src="images/maptour3.png" class="img-fluid"></p>
+</section>
+<section id="add-the-map-location" class="level4" data-number="11.3.2">
+<h4 data-number="11.3.2" class="anchored" data-anchor-id="add-the-map-location"><span class="header-section-number">11.3.2</span> Add the map location</h4>
+<ol type="1">
+<li><p>Click <img src="images/maptour4.png" alt="Screenshot showing the Add location button in the Map Tour interface" height="40"> located below the block, the map will zoom out to show the full view</p></li>
+<li><p>Choose one of two methods:</p>
+<p><strong>Method A: Search</strong></p>
+<ul>
+<li>Use the <strong>Search by location</strong> bar</li>
+<li>Type the place name or address</li>
+<li>Select from the dropdown results</li>
+<li>The map zooms to that location</li>
+<li>Click <code>Add to map</code></li>
+</ul>
+<p><strong>Method B: Manual placement</strong></p>
+<ul>
+<li>Zoom in or out to the area</li>
+<li>Click on the map where you want to place the marker</li>
+<li>Click <code>Add to map</code></li>
+</ul></li>
+<li><p>Click <strong>Use current zoom level</strong>. Use the zoom level you prefer.</p></li>
+<li><p>Click <code>Save</code>, your first location appears with a <strong>#1</strong> marker</p></li>
+</ol>
+<p><img src="images/maptour5.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="add-additional-locations" class="level3" data-number="11.4">
+<h3 data-number="11.4" class="anchored" data-anchor-id="add-additional-locations"><span class="header-section-number">11.4</span> Add Additional Locations</h3>
+<ol type="1">
+<li><strong>Create a new slide</strong>
+<ul>
+<li>Click the <strong>+ New slide</strong> button on the right side of the map</li>
+</ul></li>
+<li><strong>Add content</strong> (repeat for each location):
+<ul>
+<li>Upload an <strong>image or video</strong></li>
+<li>Add a <strong>title</strong></li>
+<li>Add a <strong>description</strong></li>
+<li>Click <strong>Add location</strong> and search for the place</li>
+<li>Adjust zoom level</li>
+<li>Click <strong>Use current zoom level</strong></li>
+</ul></li>
+<li>Each location receives a sequential number (1, 2, 3, 4…)</li>
+</ol>
+<p><img src="images/maptour6.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Managing Slides">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Managing Slides
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you add a slide while viewing an existing one, the new slide will be inserted after the current slide. You can reorder slides using the options menu (three dots).</p>
+</div>
+</div>
+</section>
+<section id="change-the-layout" class="level3" data-number="11.5">
+<h3 data-number="11.5" class="anchored" data-anchor-id="change-the-layout"><span class="header-section-number">11.5</span> Change the Layout</h3>
+<p>You can switch layouts at any time:</p>
+<ol type="1">
+<li>Click <strong>Options</strong> in the Map Tour settings</li>
+<li>Select <strong>Change layout</strong></li>
+</ol>
+<p><img src="images/maptour7.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>Choose a different option:</li>
+</ol>
+<p><strong>Map Focused</strong> - Full-screen map with content floating on top - Best for emphasizing geography and spatial relationships</p>
+<p><strong>Media Focused</strong> - Large image/video display with smaller map above - Best for strong visuals where the map provides context</p>
+<p><strong>Explorer Tours - Grid</strong> - All images displayed as a clickable grid - Map shows all locations at once - No sequential order - free exploration - Click any image to view details and zoom to location</p>
+<p><strong>Explorer Tours - List</strong> - Vertical list of images with text - Map on the side - Similar to grid but in list format</p>
+<ol start="4" type="1">
+<li>Click <strong>Save</strong></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/maptour8.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="preview-your-map-tour" class="level3" data-number="11.6">
+<h3 data-number="11.6" class="anchored" data-anchor-id="preview-your-map-tour"><span class="header-section-number">11.6</span> <a href="#sec-preview">Preview</a> Your Map Tour</h3>
+<ol type="1">
+<li>Click <strong>Preview</strong> in the top menu</li>
+<li>Navigate through your tour:
+<ul>
+<li>Scroll or click through numbered locations</li>
+<li>Watch the map update to each stop</li>
+<li>Test the interactive features</li>
+</ul></li>
+<li>In <strong>Grid or List Explorer</strong> layouts:
+<ul>
+<li>Click on any image to view that location</li>
+<li>The map zooms to the selected point</li>
+<li>Close the detail view to return to the overview</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Choosing Between Layouts">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Choosing Between Layouts
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Map Focused</strong> - When geography and spatial context are most important</li>
+<li><strong>Media Focused</strong> - When you have compelling images/videos that deserve prominence</li>
+<li><strong>Explorer Grid/List</strong> - When you want users to explore freely without a set path, or when you have many locations to display</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="key-differences-sidecar-vs.-map-tour" class="level3" data-number="11.7">
+<h3 data-number="11.7" class="anchored" data-anchor-id="key-differences-sidecar-vs.-map-tour"><span class="header-section-number">11.7</span> Key Differences: Sidecar vs.&nbsp;Map Tour</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 32%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Sidecar</th>
+<th>Map Tour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Markers</td>
+<td>Custom icons/colors</td>
+<td>Numbered circles (1, 2, 3…)</td>
+</tr>
+<tr class="even">
+<td>Content structure</td>
+<td>Flexible, add any blocks</td>
+<td>Pre-defined (image, title, description)</td>
+</tr>
+<tr class="odd">
+<td>Best for</td>
+<td>Flexible storytelling with maps</td>
+<td>Sequential point-to-point tours</td>
+</tr>
+<tr class="even">
+<td>Navigation</td>
+<td>Scroll-based only</td>
+<td>Scroll or click-based (depending on layout)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="publish-and-share-your-storymap" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="publish-and-share-your-storymap"><span class="header-section-number">12</span> Publish and Share Your StoryMap</h2>
+<section id="add-credits-optional-but-recommended" class="level3" data-number="12.1">
+<h3 data-number="12.1" class="anchored" data-anchor-id="add-credits-optional-but-recommended"><span class="header-section-number">12.1</span> Add Credits (Optional but Recommended)</h3>
+<p>Before publishing, you can add credits and attributions at the end of your story:</p>
+<ol type="1">
+<li><strong>Scroll to the bottom</strong> of your StoryMap</li>
+<li>You’ll see a dedicated <strong>Credits</strong> section</li>
+<li><strong>Add a title</strong> (e.g., “Credits,” “Acknowledgments”)</li>
+<li><strong>Add content blocks</strong> for different types of credits:
+<ul>
+<li>Thank contributors or collaborators</li>
+<li>Attribute images (e.g., “Images: Wikimedia Commons”)</li>
+<li>Credit data sources</li>
+<li>Acknowledge funding or support</li>
+</ul></li>
+</ol>
+<p><img src="images/publish1.png" class="img-fluid"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Best Practice</strong> Always credit your sources, especially for images, data, and other media. This is both ethical and often legally required.</p>
+</div>
+</div>
+</section>
+<section id="publish-your-storymap" class="level3" data-number="12.2">
+<h3 data-number="12.2" class="anchored" data-anchor-id="publish-your-storymap"><span class="header-section-number">12.2</span> Publish Your StoryMap</h3>
+<ol type="1">
+<li><strong>Click Publish</strong> in the top menu bar</li>
+</ol>
+<p>A dialog box will appear with sharing options</p>
+<p><img src="images/publish2.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>Choose a Sharing Level</li>
+</ol>
+<p><strong>Private</strong> (default) - Only you can view the story - Not searchable by others - Good for drafts and work in progress</p>
+<p><strong>Organization</strong> - Anyone in your organization can view it - Temple users can search for and find your story - Good for internal projects or campus-wide sharing</p>
+<p><strong>Public</strong> - Anyone can view the story - Searchable by all ArcGIS Online and StoryMaps users - Good for public outreach, portfolios, or general audiences</p>
+<ol start="3" type="1">
+<li>Additional Publishing Options</li>
+</ol>
+<p>Before clicking Publish, consider:</p>
+<ul>
+<li><strong>Allow others to duplicate this story</strong> - Check this if you want people to copy and adapt your work</li>
+<li><strong>Include in search</strong> - Determines if your story appears in search results</li>
+</ul>
+<ol start="4" type="1">
+<li><p>Click <strong>Publish</strong></p></li>
+<li><p>Wait a few seconds while the story publishes (longer for media-heavy stories)</p></li>
+</ol>
+<p><img src="images/publish3.png" class="img-fluid"></p>
+</section>
+<section id="share-your-published-story" class="level3" data-number="12.3">
+<h3 data-number="12.3" class="anchored" data-anchor-id="share-your-published-story"><span class="header-section-number">12.3</span> Share Your Published Story</h3>
+<p>After publishing, you’ll see a sharing screen with multiple options:</p>
+<p><img src="images/publish4.png" class="img-fluid"></p>
+<ol type="1">
+<li>Copy and Share the Link</li>
+</ol>
+<ul>
+<li><strong>Copy the direct link</strong> to share via email, messaging, or embed on websites</li>
+<li>Paste the link in a new browser window to preview the published version
+<ul>
+<li>You won’t see editing tools</li>
+<li>This is exactly how viewers will see your story</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li>Use the QR Code</li>
+</ol>
+<ul>
+<li>A QR code is automatically generated</li>
+<li>Users can scan it with mobile devices to access your story</li>
+<li><strong>Download the QR code</strong> as an image for:
+<ul>
+<li>Presentations</li>
+<li>Posters</li>
+<li>Print materials</li>
+<li>Conference materials</li>
+</ul></li>
+</ul>
+<ol start="3" type="1">
+<li>Share on Social Media</li>
+</ol>
+<p>Use the provided links to share directly on:</p>
+<ul>
+<li>Facebook</li>
+<li>Twitter</li>
+<li>LinkedIn</li>
+<li>Other platforms</li>
+</ul>
+</section>
+<section id="manage-published-stories" class="level3" data-number="12.4">
+<h3 data-number="12.4" class="anchored" data-anchor-id="manage-published-stories"><span class="header-section-number">12.4</span> Manage Published Stories</h3>
+<section id="view-publication-status" class="level4" data-number="12.4.1">
+<h4 data-number="12.4.1" class="anchored" data-anchor-id="view-publication-status"><span class="header-section-number">12.4.1</span> View Publication Status</h4>
+<p>In your content library, published stories show different icons:</p>
+<ul>
+<li><strong>Globe icon</strong> <img src="images/publish7.png" height="20"> - Story is public (visible to everyone)</li>
+<li><strong>Building icon</strong> <img src="images/publish6.png" height="20"> - Story is organization-only (Temple users)</li>
+<li><strong>Person icon</strong> <img src="images/publish5.png" height="20"> - Story is private (only you)</li>
+<li><strong>Draft</strong> <img src="images/publish8.png" height="20"> - Story has not been published yet</li>
+</ul>
+</section>
+</section>
+<section id="sharing-level-comparison" class="level3" data-number="12.5">
+<h3 data-number="12.5" class="anchored" data-anchor-id="sharing-level-comparison"><span class="header-section-number">12.5</span> Sharing Level Comparison</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 32%">
+<col style="width: 27%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Who Can View</th>
+<th>Searchable</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Private</td>
+<td>Only you</td>
+<td>No</td>
+<td>Drafts, personal work</td>
+</tr>
+<tr class="even">
+<td>Organization</td>
+<td>All Temple users</td>
+<td>Yes (within Temple)</td>
+<td>Campus projects, coursework</td>
+</tr>
+<tr class="odd">
+<td>Public</td>
+<td>Anyone</td>
+<td>Yes (globally)</td>
+<td>Public outreach, portfolios, general audiences</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Remember</strong> - Always review your credits and attributions before publishing - Test your story’s appearance on different devices using the Preview feature - You can change sharing settings at any time after publishing - Consider your audience when choosing a sharing level</p>
+</div>
+</div>
+</section>
+<section id="after-publishing" class="level3" data-number="12.6">
+<h3 data-number="12.6" class="anchored" data-anchor-id="after-publishing"><span class="header-section-number">12.6</span> After Publishing</h3>
+<p>Once published, you can:</p>
+<ul>
+<li>Continue editing (changes save automatically)</li>
+<li>Update sharing settings at any time</li>
+<li>Unpublish if needed (returns to draft status)</li>
+</ul>
+</section>
+</section>
+<section id="custom-design-and-layout" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="custom-design-and-layout"><span class="header-section-number">13</span> Custom Design and Layout</h2>
+<section id="access-design-options" class="level3" data-number="13.1">
+<h3 data-number="13.1" class="anchored" data-anchor-id="access-design-options"><span class="header-section-number">13.1</span> Access Design Options</h3>
+<ol type="1">
+<li><strong>Click Design</strong> in the top menu bar</li>
+<li>The Design panel opens with customization options</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Publishing Updates</strong> After making design changes, you’ll see “Unpublished changes” in orange at the top. Remember to click <strong>Publish</strong> again to update the live version.</p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Customize the Cover Layout</li>
+</ol>
+<p>Choose from different cover styles to change how your title and cover image appear:</p>
+<p><strong>Available cover layouts:</strong></p>
+<ul>
+<li><strong>Top</strong> - Smaller image at top with title below</li>
+<li><strong>Minimal</strong> - Compact version with less prominent image</li>
+<li><strong>Full</strong> - Image covers the entire screen with title overlaid</li>
+<li><strong>Side-by-side</strong> - Image and text share the screen</li>
+</ul>
+<ol start="4" type="1">
+<li>Apply a Theme</li>
+</ol>
+<ul>
+<li>In the Design panel, browse <strong>Themes</strong></li>
+<li>Select from pre-made themes:
+<ul>
+<li><strong>Summit</strong> (default)</li>
+<li>Other theme options available</li>
+</ul></li>
+<li>Themes control:
+<ul>
+<li>Font choices</li>
+<li>Text sizes</li>
+<li>Color schemes</li>
+<li>Overall visual style</li>
+</ul></li>
+</ul>
+<ol start="5" type="1">
+<li>Enable Navigation</li>
+</ol>
+<p>The navigation feature adds a menu to help users jump between sections:</p>
+<ul>
+<li>In the Design panel, toggle <strong>Navigation</strong> on</li>
+<li>A navigation bar appears showing:
+<ul>
+<li>Main section headings (Heading 1 and Heading 2)</li>
+<li>Credits section</li>
+<li>Any custom section titles you’ve added</li>
+</ul></li>
+</ul>
+<p><img src="images/publish9.png" class="img-fluid"></p>
+<p><strong>How navigation works:</strong></p>
+<ul>
+<li>Navigation links appear at the top of your story</li>
+<li>Clicking a link jumps to that section</li>
+<li>The current section is underlined or highlighted</li>
+<li>Great for longer stories with multiple sections</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>When to Use Navigation</strong> Enable navigation if your story: - Has multiple distinct sections - Is longer than 3-4 scrolls - Benefits from allowing users to jump to specific topics - Contains reference material users might want to revisit</p>
+</div>
+</div>
+<p><img src="images/publish10.png" class="img-fluid"></p>
+</section>
+<section id="add-sections-to-navigation" class="level3" data-number="13.2">
+<h3 data-number="13.2" class="anchored" data-anchor-id="add-sections-to-navigation"><span class="header-section-number">13.2</span> Add sections to navigation</h3>
+<p>Any text formatted as <strong>Heading 1</strong> or <strong>Heading 2</strong> automatically appears in the navigation menu:</p>
+<ol type="1">
+<li>Add a text block where you want a new section</li>
+<li>Type your section title (e.g., “The Last Section”)</li>
+<li>Select the text</li>
+<li>Choose <strong>Heading 1</strong> or <strong>Heading 2</strong> from the formatting options</li>
+<li>The section appears in the navigation menu automatically</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Always Use the Latest Version</strong> Make sure you’re sharing the published version with all your latest changes. If you see “Unpublished changes” at the top, click Publish before sharing.</p>
+</div>
+</div>
+</section>
+<section id="design-best-practices" class="level3" data-number="13.3">
+<h3 data-number="13.3" class="anchored" data-anchor-id="design-best-practices"><span class="header-section-number">13.3</span> Design Best Practices</h3>
+<ul>
+<li><strong>Cover layout</strong> - Choose based on your image and title length
+<ul>
+<li>Long titles work better with side-by-side or top layouts</li>
+<li>Striking images work well with full-screen layouts</li>
+</ul></li>
+<li><strong>Text positioning</strong> - Ensure text is readable against your cover image
+<ul>
+<li>Avoid placing text over busy parts of the image</li>
+<li>Consider adding a semi-transparent overlay if text is hard to read</li>
+</ul></li>
+<li><strong>Navigation</strong> - Enable for stories with:
+<ul>
+<li>5+ sections</li>
+<li>Complex content users might want to reference</li>
+<li>Educational or instructional content</li>
+</ul></li>
+<li><strong>Themes</strong> - Stick with one theme for consistency
+<ul>
+<li>Test different themes to see which fits your content</li>
+<li>Consider your audience (formal vs.&nbsp;casual)</li>
+</ul></li>
+<li><strong>Mobile preview</strong> - Always check mobile appearance
+<ul>
+<li>Most users may view on phones or tablets</li>
+<li>Adjust layouts if mobile version doesn’t look good</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="more-resources" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="more-resources"><span class="header-section-number">14</span> More Resources</h2>
+<section id="from-esri" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="from-esri">From ESRI</h3>
+<ul>
+<li><a href="https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4">Getting started with ArcGIS StoryMaps</a></li>
+<li><a href="https://storymaps.arcgis.com/collections/d34681ac0d1a417894a3a3d955c6913f">Discover the possibilities with ArcGIS StoryMaps!</a></li>
+<li><a href="https://doc.arcgis.com/en/arcgis-storymaps/gallery/?rsource=https%3A%2F%2Fwww.esri.com%2Fen-us%2Farcgis%2Fproducts%2Farcgis-storymaps%2Fstories">Examples from the ArcGIS StoryMaps community</a></li>
+</ul>
+</section>
+<section id="others" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="others">Others</h3>
+<ul>
+<li><a href="https://felipevaldez.com/StoryMaps_intro2026/1">Video Tutorial</a></li>
+<li><a href="https://felipevaldez.com/storytelling_maplibre_workshop/">Open-source storymaps tutorial</a></li>
+<li><a href="https://guides.temple.edu/storymaps">Library Guide on StoryMaps</a></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

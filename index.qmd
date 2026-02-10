@@ -1,0 +1,1051 @@
+---
+title: "ArcGIS StoryMaps tutorial"
+subtitle: "Spring 2026"
+date: 2026-01-8
+---
+
+## Introduction
+
+This is an introductory guide to use ArcGIS StoryMaps to create and share interactive and multimedia stories.
+
+A video tutorial is also available. Click [here](https://felipevaldez.com/StoryMaps_intro2026/1) if you prefer to use the video guides.
+
+You will learn to login to ArcGIS StoryMaps using your Temple University account, the basics of the StoryMaps workspace, to create your first StoryMap with a cover, title and subtitles, to add multimedia and interactive elements to your story and, to publish and share the story.
+
+## What is ArcGIS StoryMaps?
+
+![](https://storymaps.arcgis.com/static/images/social-sharing-card.jpeg)
+
+[ArcGIS StoryMaps](https://www.esri.com/en-us/arcgis/products/arcgis-storymaps/overview) is a web-based storytelling platform created by Esri that combines interactive maps with narrative text, images, videos, and other multimedia content. It's designed to help people create compelling, map-based stories that communicate information in an engaging way.
+
+StoryMaps lets you build narratives that readers scroll through, with maps that can zoom, pan, and reveal different layers of information as the story unfolds.
+
+It's particularly useful when location is central to understanding your story - whether you're documenting historical events across different places, showing environmental changes over time, or explaining how geographic factors influence a situation. The tool is accessible to non-technical users while still offering customization options for those who want more control over the design.
+
+## Getting Started
+
+This section will show you how to get started using ArcGIS StoryMaps through your Temple University Account and the main workspace.
+
+### Open a web browser
+
+Open Chrome, Firefox, Safari, or your preferred browser.
+
+::: callout-important
+
+ArcGIS StoryMaps works best on the latest versions of major, WebGL-enabled desktop browsers, including Google Chrome, Mozilla Firefox, Apple Safari, and Microsoft Edge.
+:::
+
+### Go to <https://storymaps.arcgis.com/>
+
+Type `https://storymaps.arcgis.com/` on the navigation bar or search `Storymaps arcgis`
+
+### Sign in to ArcGIS StoryMaps
+
+-   Click the `Sign In` button on the main page
+-   Select `Your ArcGIS organization's URL` (not the personal login option)
+
+### Enter your organization URL
+
+-   Type `temple` in the organization field
+-   The full URL should display as: temple.maps.arcgis.com
+-   Click `Continue`
+
+![](images/login.png){width="400px" fig-align="center"}
+
+::: callout-warning
+
+You can always sign in using a free personal account. However, using the organizational license will give you access to more features and products from Esri. Get more info [here](https://doc.arcgis.com/en/arcgis-online/get-started/create-account.htm#ESRI_SECTION1_D91DD2A709AE4FB68A9CC095F1688E05)
+:::
+
+### Log in with your Temple credentials
+
+-   Enter your TUaccess username and password
+-   Use the same credentials you use for other Temple systems
+
+![](images/tuaccess.png){width="400px" fig-align="center"}
+
+## Understanding Your Workspace
+
+Once logged in, you'll see your ArcGIS StoryMaps workspace with the following sections:
+
+1.  On the center, you will see the **Content**, a gallery of the storymaps you have created.
+2.  On the left, you will see many options to **Filter** the storymaps you are seeing in the gallery:
+
+-   **My Stories** - View story maps you've created
+-   **My Favorites** - Access story maps you've favorited
+-   **My Groups** - See groups you belong to within ArcGIS
+-   **My Organization** - Browse all story maps created by Temple users (great for inspiration!)
+
+3.  On the bottom left you can find **Quick Links** - Access tutorials, tips, and story planning guides
+
+![](images/workspace.png)
+
+## Creating Your First StoryMap
+
+### Start a New Story
+
+#### Create a new story
+
+-   Click the `Create` button in the top right corner
+-   Select `Story` from the dropdown menu
+-   The Story Builder will launch
+
+![](images/create.png)
+
+::: {.callout-caution collapse="true"}
+
+**Understanding the Interface**
+
+Before you start editing, note the following elements in the top menu bar:
+
+![](images/status.png){width="30%"}
+
+-   **Draft status** - Your story is private until you publish it. No one else can see it, even other Temple users.
+-   **Auto-save** - Changes are saved automatically
+-   **Undo/Redo buttons** - Located in the top menu
+:::
+
+### Add Basic Information (title, subtitle, cover)
+
+#### Add a title and subtitle
+
+<br>
+
+1.  Click on the "Story title" placeholder
+
+Enter your title (example: "My Map - Philadelphia")
+
+2.  Click on the subtitle area
+
+Add a short introduction (example: "This sample map is for an introductory workshop on ArcGIS StoryMaps")
+
+3.  The byline will show your name by default (you can change this if multiple people are working on the story)
+
+::: {.content-visible when-format="html"}
+
+![](images/add1.gif)
+:::
+
+::: {.content-visible when-format="pdf"}
+
+![](images/add1.png)
+:::
+
+
+
+#### Add a cover image or video
+
+1.  Click `Add cover image or video` (the prominent button at the top)
+2.  Click `Browse` to select a file from your computer
+3.  Select the image you want to use
+4.  Click `Add`
+
+![](images/addimage.png)
+
+#### Configure the cover image
+
+Once uploaded, click on the gear ![](images/gear.png){height="40px"} icon over the cover image to access its options:
+
+-   **Display options** - Choose how the image appears on different devices (desktop vs. mobile)
+-   **Alternative text** - Add descriptive text for accessibility
+-   **Attribution** - Add a credit line for the image source
+
+An information icon will appear in the top left corner of your image showing the attribution.
+
+![](images/coverset.png){width="400px" fig-align="center"}
+
+#### Adjust the title panel
+
+1.  Click `Change Panel` ![](images/change.png){height="40px"} appearance on the title/description block
+2.  Choose the panel position:
+
+-   Horizontal
+-   Centered
+-   Other layout options
+
+Select the option that works best for your content
+
+### Add Content
+
+#### Add a heading
+
+1.  Click in the Tell your story area below the cover
+
+Type your heading (example: "The Most Important Sites")
+
+2.  Click on the text to reveal formatting options
+
+Select a text style from the dropdown option, or change the size and type as you want.
+
+![](images/heading.png)
+
+#### Add body text
+
+1.  Click below your heading
+2.  Type your paragraph text (example: "This section highlights the most important sites to see in Philadelphia")
+
+Format as needed using the text editor (similar to Microsoft Word)
+
+![](images/paragraph.png)
+
+### Additional Content Options
+
+You can add various elements to your story by clicking the plus button ![](images/plus.png){height="40px"}:
+
+-   **Buttons** - Link to other pages or resources
+-   **Code blocks** - Embed custom code
+-   **Multimedia** - Images, image galleries, videos, audio
+-   **Embeds** - Content from other websites
+-   **ArcGIS content** - Maps and other features from your ArcGIS account
+
+### Save Your Work
+
+1.  Check the top menu bar to confirm your changes have been saved (auto-save is enabled)
+2.  Your story remains in Draft status until you publish it
+3.  To return to your content library, click the back arrow (←) in the top left
+
+Your new story will appear in your content list with:
+
+-   Title
+-   Short description
+-   Draft status indicator
+-   Creation date
+
+::: callout-note
+
+Remember Your story is not visible to anyone else until you click `Publish`. You can continue editing and saving as a draft as long as you need.
+:::
+
+## Adding a Map to Your Story
+
+### Create an Express Map
+
+1.  Open your story for editing
+
+-   From your content library, click on your story (e.g., "My Map - Philadelphia")
+
+2.  Add a map block
+
+-   Click the plus sign ![](images/plus.png){height="40px"} below any existing content block
+-   Select Map from the Data Visualization section
+
+![](images/addmap.png){width="400px" fig-align="center"}
+
+3.  Choose Create Express Map
+
+-   If you haven't created any maps yet, you won't see a list of existing maps
+-   Click Create Express Map (first option)
+-   A map of the world will appear (you may see a guided tour on first use)
+
+![](images/createexpress.png)
+
+::: callout-tip
+
+**Navigation Tips**
+
+Use your mouse wheel to zoom in/out
+
+Use the zoom buttons (+/-) on the map
+
+Use the Search by location bar (top right) for easier navigation
+:::
+
+### Add Locations to Your Map
+
+#### Search for a location {#sec-search}
+
+1.  Click on the Search by location bar (top right corner) and type the place name or address
+
+-   For places: "Philadelphia, PA"
+-   For addresses: Include street number, street name, and city
+-   Adding the city name or zip code helps find the correct location
+
+2.  Select the correct result from the dropdown list
+
+-   The map will automatically zoom to that location
+-   A blue pin will appear at the center
+
+3.  Click Add to map in the popup
+
+![](images/searchloc.png)
+
+#### Configure the location point
+
+Once added, the left panel will show the point's attributes. Here are some of the things you can configure:
+
+**Add or edit basic information:**
+
+1.  Title - Change from the default search result to something simpler (e.g., "City of Philadelphia")
+2.  Description - Add details about the location
+3.  Image or video - Click to add visual content (see below)
+4.  Change the pin style
+
+![](images/point1.png){width="400px" fig-align="center"}
+
+**Change the pin style:**
+
+1.  Click the style button at the bottom of the left panel
+
+Choose from:
+
+-   Custom image instead of an icon
+-   Different icon sizes (small, medium, large)
+-   Different colors
+
+2.  Click Save
+
+![](images/point2.png){width="400px" fig-align="center"}
+
+**Add an image to a location:**
+
+1.  Click Add image or video in the left panel
+2.  Click Browse your files
+3.  Select an image from your computer
+
+![](images/point3.png)
+
+4.  Configure image display:
+
+-   Preview - See how it appears on different devices
+
+-   Placement options: Fill crop - Uses the entire space (may crop edges); Fit (do not crop) - Shows entire image (may have borders)
+
+-   Position - Adjust focal point (top, center, bottom)
+
+-   Background color - Set color for any empty space
+
+5.  Add Attribution information
+6.  Click Save
+
+![](images/point4.png)
+
+## Add Multiple Locations
+
+Repeat the [search](#sec-search) and add process for each location you want to include:
+
+1.  Search for the next location (e.g., "Philadelphia Museum of Art")
+2.  Click `Add to map`
+3.  Add an image, edit the title, and add a description
+4.  Customize the pin color and size
+5.  Click `Save`
+
+::: callout-note
+
+**Viewing Your Points**
+
+After saving a point, the map may only show that last point. Zoom out to see all your points together. The map remains interactive - you can always zoom in/out to explore.
+:::
+
+## Configure Map Display
+
+**A. Choose map size and position**
+
+Hover your mouse over the map to reveal display options at the top:
+
+- **Float left** - Small map on the left side with text on the right
+- **Float right** - Small map on the right side with text on the left
+- **Small** - Centered, compact view
+- **Medium** - Centered, moderate size
+- **Large** - Full-width display
+
+![](images/setmap.png)
+
+**B. Set the default zoom level**
+
+1. Hover over the map and click the Edit (pencil) icon
+2. Zoom and pan to show the view you want users to see first
+3. Click Save
+
+The map will remember this zoom level regardless of the map size you choose.
+
+**C. Add a caption (optional)**
+
+Below the map, you can add a caption to:
+
+- Provide attribution
+- Explain what the map shows
+- Add context for viewers
+
+## Preview Your Story {#sec-preview}
+
+1. Click ``Preview`` in the top menu bar
+
+![](images/preview1.png)
+
+2. View how your story looks on different devices:
+
+- Desktop
+- Tablet (portrait and landscape)
+- Phone (portrait and landscape)
+
+3. Click the ``X`` to exit preview mode
+
+![](images/preview2.png)
+
+**Interactive Features**
+
+Once published, your map will be interactive for viewers:
+
+- Hovering over pins shows the title
+- Clicking on pins reveals:
+
+  - Full title
+  - Image (if added)
+  - Description
+  - Attribution
+
+- Users can zoom and pan to explore
+
+::: {.callout-tip}
+
+If you have a description longer than a few words, viewers will see a "Read more" link when hovering over the pin. Clicking it displays the full description.
+:::
+
+## Adding a Sidecar (Immersive Experience)
+
+### What is a Sidecar?
+
+A Sidecar creates an immersive, scrolling experience that combines maps or media with narrative content. As users scroll through your story, the map updates to show different locations while text and images appear alongside.
+
+::: {.content-visible when-format="html"}
+
+![](images/sidecar.gif)
+:::
+
+::: {.content-visible when-format="pdf"}
+
+![](images/sidecar.png)
+:::
+
+
+::: {.callout-note title="Sidecar Examples"}
+
+See some sidecar examples in [this collection](https://storymaps.arcgis.com/collections/f630a462b29847fa948336a2ada4b02f) from ESRI.
+:::
+
+### Choose a Sidecar Layout
+
+1. Add a Sidecar block
+
+- Click the + (plus sign) to add a new content block
+- Scroll down to the Immersive section
+- Click Sidecar
+
+![](images/sidecar1.png)
+
+2. Select a layout style
+
+- Docked - Content panel fixed on one side, map on the other
+- Floating - Map fills the screen with floating text/image panels
+- Slideshow - Traditional slide-by-slide presentation style
+
+3. Click Save to create the Sidecar
+
+![](images/sidecar2.png)
+
+::: {.callout-tip title="Layout Flexibility"}
+
+You can change the layout at any time. Start with one and switch if you want a different visual effect.
+:::
+
+### Create Your First Slide
+
+#### Add a map
+
+1. Click ``Add`` in the large panel on the right
+
+2. Select Map from the media options
+
+![](images/sidecar3.png)
+
+The following process is the same as @sec-search
+
+3. Choose Express Map
+
+4. Search for your location (e.g., "Philadelphia Museum of Art")
+
+5. Select the correct result from the dropdown
+
+6. Click ``Add to map`` if you want a pin at that location
+
+7. Click ``Save`` twice (once for the point, once for the map)
+
+::: {.content-visible when-format="html"}
+
+![](images/sidecar2.gif)
+:::
+
+::: {.content-visible when-format="pdf"}
+
+![](images/sidecar02.png)
+:::
+
+
+
+#### Add content to the left panel
+
+1. Add a title
+
+- Type your location name (e.g., "Philadelphia Museum of Art")
+- Select the text and choose Heading 2 for consistent formatting
+
+![](images/sidecar4.png)
+
+2. Add an image
+
+- Click the + button in the left panel
+- Select Image
+
+![](images/sidecar5.png){width=400px fig-align="center"}
+
+- Click Browse and select your image file
+- Add a Caption (e.g., "Source: Wikimedia Commons")
+- Click Add
+
+![](images/sidecar6.png){width=400px fig-align="center"}
+
+3. Add descriptive text
+
+![](images/sidecar7.png)
+
+- Click the + button again
+- Type your description
+- Format and style the text as needed (links, bold, colors, etc.)
+
+![](images/sidecar8.png)
+
+::: {.callout-tip}
+
+To format the text, simply *select* the words you want to change to see the formatting options.
+:::
+
+
+### Add More Slides
+
+#### Create a new slide
+
+1. Click the + New slide button at the bottom of the screen
+2. You'll see a blank slide (numbered sequentially: 1, 2, 3...)
+
+![](images/sidecar9.png)
+
+#### Add content to the new slide
+
+Repeat the same [process](#search) for each location:
+
+1. Add a map (search for the new location)
+2. Add a title (use Heading 2 or any other type you want)
+3. Add an image or video
+4. Add descriptive text
+
+::: {.callout-tip title="Adding Content"}
+
+The order you add elements doesn't matter. You can add the title first, then the image, then the map - whichever order works best for you. You can add any content to your story.
+:::
+
+
+#### Manually add a map point (if search doesn't work)
+
+If the search doesn't find the exact location you want:
+
+1. Zoom to the approximate area on the map
+2. Click the Point tool in the top menu bar
+3. Your cursor will change to a crosshair
+4. Click on the map where you want to place the point
+5. Add a title and any other details
+6. Click Save
+
+![](images/sidecar10.png)
+
+### Configure Slide Transitions
+
+1. Click the transition icon between slides (at the bottom of the screen)
+2. Choose a transition effect:
+
+- *Fade* - Smooth fade between slides
+- *Slow fade* - Slower, more gradual fade
+
+![](images/sidecar11.png){width=400px fig-align="center"}
+
+3. Additional slide options (accessible via the three-dot menu):
+
+- Duplicate slide
+- Move slide
+- Delete slide
+
+### [Preview](#sec-preview) Your Sidecar {.unnumbered}
+
+1. Click ``Preview`` in the top menu
+2. Scroll through your story to see how the Sidecar works:
+
+- The map updates as you scroll
+- Content appears in the side panel
+- Transitions occur smoothly between slides
+
+### Change the Sidecar Layout
+
+You can switch layouts at any time:
+
+1. Click ``Options`` below the slide navigation bar
+2. Select ``Change layout``
+3. Choose a different layout:
+
+- **Docked** - Fixed panel alongside map
+- **Floating** - Full-screen map with floating content panels
+- **Slideshow** - Traditional slide presentation
+
+![](images/sidecar12.png)
+
+4. Click ``Save``
+
+::: {.callout-tip title="Choosing a Layout"}
+
+Use **Floating** when the map is the most important visual element
+
+Use **Docked** for a balanced mix of content and map
+
+Use **Slideshow** for a more traditional presentation style
+
+Consider your audience's devices when choosing a layout
+:::
+
+
+## Adding a Map Tour (Immersive Experience)
+
+### What is a Map Tour?
+
+A Map Tour is similar to a Sidecar but designed specifically for showcasing multiple locations on a map. The key difference is that locations are numbered sequentially, and the interface is optimized for point-to-point navigation.
+
+::: {.content-visible when-format="html"}
+
+![](images/maptour.gif)
+:::
+
+::: {.content-visible when-format="pdf"}
+
+![](images/maptour.png)
+:::
+
+
+
+::: {.callout-note title="MapTour Examples"}
+
+See some maptour examples in [this collection](https://storymaps.arcgis.com/collections/dd4c2e6d5c2a40dd98e881f6ba616605) from ESRI.
+:::
+
+### Create a Map Tour
+
+1. Click the **+** (plus sign) to add a new content block
+2. Scroll to the **Immersive** section and click **Map Tour**
+
+![](images/maptour1.png)
+
+- **Choose your starting point**
+
+   - **Start from scratch** - Create a new tour (recommended for beginners)
+   - **Use existing layer or map** - Import from previous work
+   - **Upload media first** - Start with your images/videos
+
+3. Select a layout:
+
+   - **Map focused** - Large map with floating content panels (similar to Sidecar)
+   - **Media focused** - Large images/videos with smaller map on top
+   - **Explorer Tours - Grid** - Image grid with map, click to explore
+   - **Explorer Tours - List** - Vertical list of images with map
+
+3. Click **Save**
+
+![](images/maptour2.png){width=400px fig-align="center"}
+
+::: {.callout-note title="Map Tour vs. Sidecar"}
+
+- **Map Tour** uses numbered location markers (1, 2, 3...) instead of custom pins
+- Content structure is pre-defined (image, title, description)
+- Better for sequential point-to-point tours
+:::
+
+
+### Add Your First Location
+
+#### Add media and text
+
+The left panel has dedicated spaces for:
+
+1. **Image or video** - Click to browse and upload your file
+   - Adjust the focal point (center on the important part of the image)
+   - Choose display options (fill, fit, etc.)
+
+2. **Title** - Pre-formatted as a header
+   - Type your location name
+
+3. **Description** - Add details about the location
+   - Format text, add hyperlinks, style as needed
+   
+![](images/maptour3.png)
+
+#### Add the map location
+
+1. Click ![Add location](images/maptour4.png){fig-alt="Screenshot showing the Add location button in the Map Tour interface" height=40px} located below the block, the map will zoom out to show the full view
+2. Choose one of two methods:
+
+   **Method A: Search**
+   - Use the **Search by location** bar
+   - Type the place name or address
+   - Select from the dropdown results
+   - The map zooms to that location
+   - Click ``Add to map``
+
+   **Method B: Manual placement**
+   - Zoom in or out to the area
+   - Click on the map where you want to place the marker
+   - Click ``Add to map``
+
+3. Click **Use current zoom level**. Use the zoom level you prefer.
+4. Click ``Save``, your first location appears with a **#1** marker
+
+![](images/maptour5.png)
+
+### Add Additional Locations
+
+1. **Create a new slide**
+   - Click the **+ New slide** button on the right side of the map
+
+2. **Add content** (repeat for each location):
+   - Upload an **image or video**
+   - Add a **title**
+   - Add a **description**
+   - Click **Add location** and search for the place
+   - Adjust zoom level
+   - Click **Use current zoom level**
+
+3. Each location receives a sequential number (1, 2, 3, 4...)
+
+![](images/maptour6.png)
+
+::: {.callout-tip title="Managing Slides"}
+
+If you add a slide while viewing an existing one, the new slide will be inserted after the current slide. You can reorder slides using the options menu (three dots).
+:::
+
+
+### Change the Layout
+
+You can switch layouts at any time:
+
+1. Click **Options** in the Map Tour settings
+2. Select **Change layout**
+
+![](images/maptour7.png)
+
+3. Choose a different option:
+
+**Map Focused**
+- Full-screen map with content floating on top
+- Best for emphasizing geography and spatial relationships
+
+**Media Focused**
+- Large image/video display with smaller map above
+- Best for strong visuals where the map provides context
+
+**Explorer Tours - Grid**
+- All images displayed as a clickable grid
+- Map shows all locations at once
+- No sequential order - free exploration
+- Click any image to view details and zoom to location
+
+**Explorer Tours - List**
+- Vertical list of images with text
+- Map on the side
+- Similar to grid but in list format
+
+4. Click **Save**
+
+![](images/maptour8.png){width=400px fig-align="center"}
+
+### [Preview](#sec-preview) Your Map Tour
+
+1. Click **Preview** in the top menu
+2. Navigate through your tour:
+   - Scroll or click through numbered locations
+   - Watch the map update to each stop
+   - Test the interactive features
+
+3. In **Grid or List Explorer** layouts:
+   - Click on any image to view that location
+   - The map zooms to the selected point
+   - Close the detail view to return to the overview
+
+::: {.callout-tip title="Choosing Between Layouts"}
+
+- **Map Focused** - When geography and spatial context are most important
+- **Media Focused** - When you have compelling images/videos that deserve prominence
+- **Explorer Grid/List** - When you want users to explore freely without a set path, or when you have many locations to display
+:::
+
+
+### Key Differences: Sidecar vs. Map Tour
+
+| Feature | Sidecar | Map Tour |
+|---------|---------|----------|
+| Markers | Custom icons/colors | Numbered circles (1, 2, 3...) |
+| Content structure | Flexible, add any blocks | Pre-defined (image, title, description) |
+| Best for | Flexible storytelling with maps | Sequential point-to-point tours |
+| Navigation | Scroll-based only | Scroll or click-based (depending on layout) |
+
+## Publish and Share Your StoryMap
+
+### Add Credits (Optional but Recommended)
+
+Before publishing, you can add credits and attributions at the end of your story:
+
+1. **Scroll to the bottom** of your StoryMap
+2. You'll see a dedicated **Credits** section
+3. **Add a title** (e.g., "Credits," "Acknowledgments")
+4. **Add content blocks** for different types of credits:
+   - Thank contributors or collaborators
+   - Attribute images (e.g., "Images: Wikimedia Commons")
+   - Credit data sources
+   - Acknowledge funding or support
+   
+![](images/publish1.png)
+
+::: {.callout-tip}
+
+**Best Practice**
+Always credit your sources, especially for images, data, and other media. This is both ethical and often legally required.
+:::
+
+
+### Publish Your StoryMap
+
+1. **Click Publish** in the top menu bar
+
+A dialog box will appear with sharing options
+
+![](images/publish2.png)
+
+2. Choose a Sharing Level
+
+**Private** (default)
+- Only you can view the story
+- Not searchable by others
+- Good for drafts and work in progress
+
+**Organization**
+- Anyone in your organization can view it
+- Temple users can search for and find your story
+- Good for internal projects or campus-wide sharing
+
+**Public**
+- Anyone can view the story
+- Searchable by all ArcGIS Online and StoryMaps users
+- Good for public outreach, portfolios, or general audiences
+
+3. Additional Publishing Options
+
+Before clicking Publish, consider:
+
+- **Allow others to duplicate this story** - Check this if you want people to copy and adapt your work
+- **Include in search** - Determines if your story appears in search results
+
+4. Click **Publish**
+
+5. Wait a few seconds while the story publishes (longer for media-heavy stories)
+
+![](images/publish3.png)
+
+### Share Your Published Story
+
+After publishing, you'll see a sharing screen with multiple options:
+
+![](images/publish4.png)
+
+1. Copy and Share the Link
+
+- **Copy the direct link** to share via email, messaging, or embed on websites
+- Paste the link in a new browser window to preview the published version
+   - You won't see editing tools
+   - This is exactly how viewers will see your story
+
+2. Use the QR Code
+
+- A QR code is automatically generated
+- Users can scan it with mobile devices to access your story
+- **Download the QR code** as an image for:
+   - Presentations
+   - Posters
+   - Print materials
+   - Conference materials
+
+3. Share on Social Media
+
+Use the provided links to share directly on:
+
+- Facebook
+- Twitter
+- LinkedIn
+- Other platforms
+
+### Manage Published Stories
+
+#### View Publication Status
+
+In your content library, published stories show different icons:
+
+- **Globe icon** ![](images/publish7.png){height=20px} - Story is public (visible to everyone)
+- **Building icon** ![](images/publish6.png){height=20px} - Story is organization-only (Temple users)
+- **Person icon** ![](images/publish5.png){height=20px} - Story is private (only you)
+- **Draft** ![](images/publish8.png){height=20px} - Story has not been published yet
+
+### Sharing Level Comparison
+
+| Level | Who Can View | Searchable | Best For |
+|-------|--------------|------------|----------|
+| Private | Only you | No | Drafts, personal work |
+| Organization | All Temple users | Yes (within Temple) | Campus projects, coursework |
+| Public | Anyone | Yes (globally) | Public outreach, portfolios, general audiences |
+
+::: {.callout-note}
+
+**Remember**
+- Always review your credits and attributions before publishing
+- Test your story's appearance on different devices using the Preview feature
+- You can change sharing settings at any time after publishing
+- Consider your audience when choosing a sharing level
+:::
+
+
+### After Publishing
+
+Once published, you can:
+
+- Continue editing (changes save automatically)
+- Update sharing settings at any time
+- Unpublish if needed (returns to draft status)
+
+## Custom Design and Layout
+
+### Access Design Options
+
+1. **Click Design** in the top menu bar
+2. The Design panel opens with customization options
+
+::: {.callout-note}
+
+**Publishing Updates**
+After making design changes, you'll see "Unpublished changes" in orange at the top. Remember to click **Publish** again to update the live version.
+:::
+
+
+3. Customize the Cover Layout
+
+Choose from different cover styles to change how your title and cover image appear:
+
+**Available cover layouts:**
+
+- **Top** - Smaller image at top with title below
+- **Minimal** - Compact version with less prominent image
+- **Full** - Image covers the entire screen with title overlaid
+- **Side-by-side** - Image and text share the screen
+
+4. Apply a Theme
+
+- In the Design panel, browse **Themes**
+- Select from pre-made themes:
+   - **Summit** (default)
+   - Other theme options available
+
+- Themes control:
+   - Font choices
+   - Text sizes
+   - Color schemes
+   - Overall visual style
+
+5. Enable Navigation
+
+The navigation feature adds a menu to help users jump between sections:
+
+- In the Design panel, toggle **Navigation** on
+- A navigation bar appears showing:
+   - Main section headings (Heading 1 and Heading 2)
+   - Credits section
+   - Any custom section titles you've added
+   
+![](images/publish9.png)
+
+**How navigation works:**
+
+- Navigation links appear at the top of your story
+- Clicking a link jumps to that section
+- The current section is underlined or highlighted
+- Great for longer stories with multiple sections
+
+::: {.callout-tip}
+
+**When to Use Navigation**
+Enable navigation if your story:
+- Has multiple distinct sections
+- Is longer than 3-4 scrolls
+- Benefits from allowing users to jump to specific topics
+- Contains reference material users might want to revisit
+:::
+
+
+![](images/publish10.png)
+
+### Add sections to navigation
+
+Any text formatted as **Heading 1** or **Heading 2** automatically appears in the navigation menu:
+
+1. Add a text block where you want a new section
+2. Type your section title (e.g., "The Last Section")
+3. Select the text
+4. Choose **Heading 1** or **Heading 2** from the formatting options
+5. The section appears in the navigation menu automatically
+
+::: {.callout-important}
+
+**Always Use the Latest Version**
+Make sure you're sharing the published version with all your latest changes. If you see "Unpublished changes" at the top, click Publish before sharing.
+:::
+
+
+### Design Best Practices
+
+- **Cover layout** - Choose based on your image and title length
+  - Long titles work better with side-by-side or top layouts
+  - Striking images work well with full-screen layouts
+
+- **Text positioning** - Ensure text is readable against your cover image
+  - Avoid placing text over busy parts of the image
+  - Consider adding a semi-transparent overlay if text is hard to read
+
+- **Navigation** - Enable for stories with:
+  - 5+ sections
+  - Complex content users might want to reference
+  - Educational or instructional content
+
+- **Themes** - Stick with one theme for consistency
+  - Test different themes to see which fits your content
+  - Consider your audience (formal vs. casual)
+
+- **Mobile preview** - Always check mobile appearance
+  - Most users may view on phones or tablets
+  - Adjust layouts if mobile version doesn't look good
+  
+## More Resources
+
+### From ESRI {-}
+
+- [Getting started with ArcGIS StoryMaps](https://storymaps.arcgis.com/stories/cea22a609a1d4cccb8d54c650b595bc4)
+- [Discover the possibilities with ArcGIS StoryMaps!](https://storymaps.arcgis.com/collections/d34681ac0d1a417894a3a3d955c6913f)
+- [Examples from the ArcGIS StoryMaps community](https://doc.arcgis.com/en/arcgis-storymaps/gallery/?rsource=https%3A%2F%2Fwww.esri.com%2Fen-us%2Farcgis%2Fproducts%2Farcgis-storymaps%2Fstories)
+
+### Others {-}
+
+- [Video Tutorial](https://felipevaldez.com/StoryMaps_intro2026/1)
+- [Open-source storymaps tutorial](https://felipevaldez.com/storytelling_maplibre_workshop/)
+- [Library Guide on StoryMaps](https://guides.temple.edu/storymaps)
+
+
+

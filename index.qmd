@@ -1,6 +1,14 @@
 ---
 title: "ArcGIS StoryMaps tutorial"
 subtitle: "Spring 2026"
+author:
+  - name: Felipe Valdez
+    orcid: 0000-0001-6999-5657
+    email: felipe.valdez@temple.edu
+    affiliation: 
+      - name: Temple University
+        city: Philadelphia
+        state: PA
 date: 2026-01-8
 ---
 

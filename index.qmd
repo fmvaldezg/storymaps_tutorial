@@ -7,9 +7,11 @@ author:
     email: felipe.valdez@temple.edu
     affiliation: 
       - name: Temple University
+        department: Temple University Libraries
         city: Philadelphia
         state: PA
 date: 2026-01-8
+license: "CC BY-NC-SA"
 ---
 
 ## Introduction
